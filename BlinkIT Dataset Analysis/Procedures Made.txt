@@ -1,0 +1,106 @@
+QUESTIONS:
+
+1.) Total Sales by Fat Content:
+
+Objective: Analyze the impact of fat content on total sales.
+Additional KPI Metrics: Assess how other KPIs (Average Sales, Number of Items, Average Rating) vary with fat content.
+Chart Type: Donut Chart.
+
+2.) Total Sales by Item Type:
+
+Objective: Identify the performance of different item types in terms of total sales.
+Additional KPI Metrics: Assess how other KPIs (Average Sales, Number of Items, Average Rating) vary with fat content.
+Chart Type: Bar Chart.
+
+3.) Fat Content by Outlet for Total Sales:
+
+Objective: Compare total sales across different outlets segmented by fat content.
+Additional KPI Metrics: Assess how other KPIs (Average Sales, Number of Items, Average Rating) vary with fat content.
+Chart Type: Stacked Column Chart.
+
+4.) Total Sales by Outlet Establishment:
+
+Objective: Evaluate how the age or type of outlet establishment influences total sales.
+Chart Type: Line Chart.
+
+
+5.) Sales by Outlet Size:
+
+Objective: Analyze the correlation between outlet size and total sales.
+Chart Type: Donut/Pie Chart.
+
+6.) Sales by Outlet Location:
+
+Objective: Assess the geographic distribution of sales across different locations.
+Chart Type: Funnel Map.
+
+7.) All Metrics by Outlet Type:
+
+Objective: Provide a comprehensive view of all key metrics (Total Sales, Average Sales, Number of Items, Average Rating) broken down by different outlet types.
+Chart Type: Matrix Card.
+
+8.) Determine the relation of Item Visibility & Sales
+
+
+
+
+Initial Analysis in EXCEL:
+1. Indentified the blank values - Item Weight. Then filled blank values with null to avoid problems in importing.
+2. Created a new column for Item Weight that has the values and the nulls. 
+
+
+DATA CLEANING:
+
+-- 1.) DUPLICATE DATASET
+-- 2.) »¿Item Fat Content to Item Fat Content
+-- 3 - 4.) CHANGE THE INCOSISTENT VALUES (LF, low fat, reg)
+-- 5.) SPACES
+-- 6.) NULL VALUES (Just double checking)
+-- 7.) REMOVING DUPLICATE DATA
+-- 8.) Replaced Null Values in Item_Weight_New
+-- 9.) REPLACE 0 VALUES - Item Visibilty
+-- 10.) UPDATE DATA TYPES
+-- 11.) ANSWER QUESTIONS
+
+
+
+STEPS DONE - DATA CLEANING:
+1.) Duplicated Dataset
+2.) Fixed the column name - Item Fat Content.
+3-4.) Updated the inconsistent values in Item Fat Content - LF, low fat, reg.
+5.) Trimmed the spaces in the beginning of the values in Item_Weight_New & Sales.
+6.) Double checked the Null values. 
+7.) Identified the duplicate data. 
+	- Added row_num that identifies unique rows, 1 & 2 (duplicate). 
+	- Created a temporary table to filter the duplicate (2's)
+	- Since it is not deleteable, we create a table that has the row_num column. Inserted the row_num column.
+	- Insertion of data into the new table
+	- DELETE THE DUPLICATES (2's)
+8.) Replaced Null Values in Item_Weight_New
+	- Created a column RowNum for determining Groups. Count within each group for determining if it is 
+	  ODD or EVEN for getting the Median.
+	- Made a code for the calculations of median.
+	- Updated the values.
+
+SAMPLE FLOW: 
+
+ODD:
+Input Group: Item_Weight_New = [3, 5, 7, 9, 11]
+TotalCount = 5 (odd).
+Median = (5 + 1) / 2 = 3rd row = 7.
+
+EVEN:
+Input Group: Item_Weight_New = [3, 5, 7, 9]
+TotalCount = 4 (even).
+Median = AVG(2nd row, 3rd row) = (5 + 7) / 2 = 6.
+
+
+9.) REPLACE 0 VALUES - Item Visibilty 
+	- ALL OF THE OPERATIONS ARE THE SAME AS THE NUMBER 8.
+
+10.) UPDATE DATA TYPES - Item Identifier, Outlet Identifier, Outlet Location Type, Outlet Type, from TEXT INTO VARCHAR.
+
+
+
+
+
